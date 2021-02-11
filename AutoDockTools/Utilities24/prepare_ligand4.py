@@ -252,9 +252,14 @@ if __name__ == '__main__':
     else:
         if verbose:
             print("No change in atomic coordinates")
-    if mol.returnCode != 0:
-        sys.stderr.write(mol.returnMsg + "\n")
-    sys.exit(mol.returnCode)
+
+    # Protein has no attribute 'returnCode'
+    # MoleculePreparation.py sometimes won't write this attribute.
+    # So we'll comment the next lines here
+    # Instead of of modifying MoleculePreparation.
+    #if mol.returnCode != 0:
+    #    sys.stderr.write(mol.returnMsg + "\n")
+    #sys.exit(mol.returnCode)
 
 # To execute this command type:
 # prepare_ligand4.py -l pdb_file -v
